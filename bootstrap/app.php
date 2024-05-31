@@ -29,7 +29,7 @@ $app->withEloquent();
 
 
 $app->singleton('App\Services\OmdbService', function ($app) {
-    return new \App\Services\OmdbService('cc154ab5'); 
+    return new \App\Services\OmdbService('cc154ab5');
 });
 
 
@@ -117,5 +117,12 @@ $app->router->group([
 ], function ($router) {
     require __DIR__.'/../routes/web.php';
 });
+
+$app->singleton(
+    App\Services\OpenLibraryService::class,
+    function ($app) {
+        return new App\Services\OpenLibraryService();
+    }
+);
 
 return $app;
