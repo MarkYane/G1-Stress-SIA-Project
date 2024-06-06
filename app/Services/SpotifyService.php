@@ -10,6 +10,17 @@ use Illuminate\Support\Facades\Session;
 
 class SpotifyService
 {
+    public function searchTracks($query)
+{
+    return $this->makeSpotifyRequest('GET', 'search', [
+        'query' => [
+            'q' => $query,
+            'type' => 'track',
+            'limit' => 20, // You can adjust the limit as per your requirement
+        ]
+    ]);
+}
+
     public function redirectToSpotify()
     {
         $query = http_build_query([

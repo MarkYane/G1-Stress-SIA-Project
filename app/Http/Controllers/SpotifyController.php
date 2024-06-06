@@ -8,6 +8,12 @@ use App\Services\SpotifyService;
 class SpotifyController extends Controller
 {
     protected $spotifyService;
+    public function searchTracks(Request $request)
+    {
+    $query = $request->input('query');
+    $tracks = $this->spotifyService->searchTracks($query);
+    return response()->json($tracks);
+    }
 
     public function __construct(SpotifyService $spotifyService)
     {
