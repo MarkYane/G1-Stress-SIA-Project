@@ -67,6 +67,10 @@ $app->singleton(
 
 $app->configure('app');
 
+// Configuration
+$app->configure('session');
+
+
 /*
 |--------------------------------------------------------------------------
 | Register Middleware
@@ -78,6 +82,11 @@ $app->configure('app');
 |
 */
 
+
+// Add Middleware
+$app->middleware([
+    Illuminate\Session\Middleware\StartSession::class,
+]);
 // $app->middleware([
 //     App\Http\Middleware\ExampleMiddleware::class
 // ]);
@@ -100,6 +109,9 @@ $app->configure('app');
 // $app->register(App\Providers\AppServiceProvider::class);
 // $app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
+
+$app->register(Illuminate\Session\SessionServiceProvider::class);
+
 
 /*
 |--------------------------------------------------------------------------

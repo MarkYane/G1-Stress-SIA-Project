@@ -24,8 +24,6 @@ $router->get('/', function () use ($router) {
 
 
 $router->get('/omdb/search', 'GatewayController@searchMovie');
-$router->get('/crypto/prices', 'GatewayController@getCurrentPrices');
-$router->get('/weather/current', 'GatewayController@getCurrentWeather');
 $router->get('/openlibrary/search', 'GatewayController@searchBooks');//
 
 
